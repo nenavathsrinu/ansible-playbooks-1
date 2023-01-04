@@ -1,0 +1,9 @@
+---
+- name: This play book crea a user
+  hosts: webserver
+  become: true
+  tasks:
+    - name: creating a user
+      user:
+        name: rohith
+

@@ -1,0 +1,27 @@
+---
+- name: This play book install httpd packages
+  hosts: webserver
+  become: true
+  tasks:
+    - name: installing httpd package
+      yum:
+        name: httpd
+        state: installed
+      when: ansible_os_family == "RedHat"
+    - name: httpd service starting 
+      service: 
+        name: httpd
+        state: started
+      when: ansible_os_family == "RedHat"
+    - name: installing package apache2
+      apt: 
+       name: apache2
+       state: present
+      when: ansible_os_family == "Debian"
+    - name: apache2 service starting
+      service:
+       name: apache2
+       state: started 
+      when: ansible_os_family == "Debian"
+     
+

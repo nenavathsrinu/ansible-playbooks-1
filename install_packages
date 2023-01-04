@@ -1,0 +1,10 @@
+---
+- name: This play book install packages
+  hosts: webserver
+  become: true
+  tasks:
+    - name: installing package
+      yum:
+        name: tree
+        state: installed
+

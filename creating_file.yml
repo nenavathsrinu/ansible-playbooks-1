@@ -1,0 +1,10 @@
+---
+- name: This play book create file
+  hosts: webserver
+  become: true
+  tasks:
+    - name: creating file
+      file:
+        path: /home/ansadmin/file-3
+        state: touch
+

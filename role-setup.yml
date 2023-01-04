@@ -1,0 +1,7 @@
+---
+- name: this play book install httpd
+  hosts: all
+  become: true
+  
+  roles: 
+  - setup-web-role

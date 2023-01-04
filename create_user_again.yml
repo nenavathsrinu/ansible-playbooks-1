@@ -1,0 +1,7 @@
+---
+- name: This play book crea a user
+  hosts: all
+  become: true
+  tasks:
+  - name: creating a user raj
+    user: name=deepthi

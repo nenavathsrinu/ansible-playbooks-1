@@ -1,0 +1,22 @@
+---
+- name: This play book install httpd packages
+  hosts: webserver
+  become: true
+  tasks:
+    - name: installing httpd package
+      yum:
+        name: httpd
+        state: installed
+      notify: httpd servive starting
+  handlers:       
+    - name: httpd service starting 
+      service: 
+        name: httpd
+        state: started
+      notify: copy file
+  handlers:
+    - name: copy file 
+      copy:
+        src: /home/ansadmin/index.html
+        dest: /var/www/html 
+

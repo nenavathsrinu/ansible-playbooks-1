@@ -1,0 +1,10 @@
+---
+- name: This play book deleting file
+  hosts: webserver
+  become: true
+  tasks:
+    - name: deleting file
+      file:
+        path: 
+        state: absent
+
